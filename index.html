@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genshin Impact Utility</title>
+    <link rel="icon" href="assets/mora.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="navbar">
+        Navbar
+    </div>
+
+    <div class="content">
+        <div class="modal">
+            <img src="assets/zl-meme.png" class="gold-rounded" id="gold-rounded" alt="GlitchMaster">
+            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                <h1>Approximate Wait Time</h1>
+                <img src="https://game-cdn.appsample.com/gim/icons/primogem-200.png" style="height: 2rem; margin-left: 0.25rem;">
+            </div>
+            <div class="input-container">
+                <label for="primogems">How many primogems do you have right now?</label><br>
+                <input type="number" id="primogems-input" placeholder="Please input: " min="0" max="999999">
+                <button id="btn-clear" class="btn-clear">Clear</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>How to</th>
+                        <th>Rewards</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Daily commissions</td>
+                    <td id="wait-time-daily">
+                        You currently have <span class="hl-wait-time-daily">ENOUGH!</span> Primogems to wish for the next 5-star character.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Daily commissions,<br>Blessing of the
+                        <span class="hl-welkin-moon">
+                            <a class="link-paid" href="https://sdk.hoyoverse.com/payment/genshin/index.html#/" target="_blank">
+                                Welkin Moon
+                            </a>
+                        </span>
+                    </td>
+                    <td id="wait-time-welkin">
+                        You currently have <span class="hl-wait-time-daily">ENOUGH!</span> Primogems to wish for the next 5-star character.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="row" style="margin-top: 1rem;">
+                <div class="column">
+                    <img src="assets/acquaint_fate.png" style="height: 3rem;" alt="Acquaint Fate">
+                </div>
+                <div class="column">
+                    <span id="acquaint-fate">x 0</span>
+                </div>
+                <div class="column" style="margin-left: 2rem;">
+                    <img src="assets/intertwined_fate.png" style="height: 3rem;" alt="Intertwined Fate">
+                </div>
+                <div class="column">
+                    <span id="intertwined-fate">x 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <script src="script.js"></script>
+    <div><p>Inspired by: <a href="https://genshin.hotgames.gg/wish-counter#" target="_blank">genshin.hotgames.gg</a></p></div>
+    <div><p>&copy; 2024 Genshin Impact, Utility Fan made</p></div>
+</footer>
+</html>
