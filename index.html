@@ -6,24 +6,49 @@
     <title>Genshin Impact Utility</title>
     <link rel="icon" href="assets/mora.ico">
     <link rel="stylesheet" href="styles.css">
+    <button id="theme-toggle" class="theme-button dark"><img src="assets/day-and-night.png" style="width: 20px;"></button>
 </head>
 <body>
 
     <div class="navbar">
-        Navbar
+        <ul>
+            <li>Primogems</li>
+            <!-- <li>Resins</li> -->
+            <li id="coming-soon">Coming Soon</li>
+        </ul>
     </div>
 
     <div class="content">
         <div class="modal">
             <img src="assets/zl-meme.png" class="gold-rounded" id="gold-rounded" alt="GlitchMaster">
             <div style="display: flex; align-items: center; gap: 0.25rem;">
-                <h1>Approximate Wait Time</h1>
-                <img src="https://game-cdn.appsample.com/gim/icons/primogem-200.png" style="height: 2rem; margin-left: 0.25rem;">
+                <h1>Primogems</h1>
+                <div><img src="assets/primogem.png" style="height: 3rem; margin-left: 0.25rem;"></div>
             </div>
             <div class="input-container">
-                <label for="primogems">How many primogems do you have right now?</label><br>
-                <input type="number" id="primogems-input" placeholder="Please input: " min="0" max="999999">
+                <h3 for="primogems">How many primogems do you have right now?</h3>
+                <input type="number" class="primogems-input" id="primogems-input" placeholder="Please input: " min="0" max="999999">
                 <button id="btn-clear" class="btn-clear">Clear</button>
+            </div>
+            <div id="primogems-button">
+                <button id="pmg-sub-thousands">-1000</button>
+                <button id="pmg-sub-hundreds">-100</button>
+                <button id="pmg-add-hundreds">+100</button>
+                <button id="pmg-add-thousands">+1000</button>
+            </div>
+            <div class="row" style="margin-top: 1rem;">
+                <div class="column">
+                    <img src="assets/acquaint_fate.png" style="height: 3rem;" alt="Acquaint Fate">
+                </div>
+                <div class="column">
+                    <span id="acquaint-fate">x 0</span>
+                </div>
+                <div class="column" style="margin-left: 2rem;">
+                    <img src="assets/intertwined_fate.png" style="height: 3rem;" alt="Intertwined Fate">
+                </div>
+                <div class="column">
+                    <span id="intertwined-fate">x 0</span>
+                </div>
             </div>
             <table>
                 <thead>
@@ -41,12 +66,10 @@
                 </tr>
                 <tr>
                     <td>
-                        Daily commissions,<br>Blessing of the
-                        <span class="hl-welkin-moon">
-                            <a class="link-paid" href="https://sdk.hoyoverse.com/payment/genshin/index.html#/" target="_blank">
-                                Welkin Moon
-                            </a>
-                        </span>
+                        Daily commissions, Blessing of the <br>
+                        <a class="link-paid" href="https://sdk.hoyoverse.com/payment/genshin/index.html#/" target="_blank">
+                            Welkin Moon
+                        </a>
                     </td>
                     <td id="wait-time-welkin">
                         You currently have <span class="hl-wait-time-daily">ENOUGH!</span> Primogems to wish for the next 5-star character.
@@ -54,20 +77,6 @@
                 </tr>
                 </tbody>
             </table>
-            <div class="row" style="margin-top: 1rem;">
-                <div class="column">
-                    <img src="assets/acquaint_fate.png" style="height: 3rem;" alt="Acquaint Fate">
-                </div>
-                <div class="column">
-                    <span id="acquaint-fate">x 0</span>
-                </div>
-                <div class="column" style="margin-left: 2rem;">
-                    <img src="assets/intertwined_fate.png" style="height: 3rem;" alt="Intertwined Fate">
-                </div>
-                <div class="column">
-                    <span id="intertwined-fate">x 0</span>
-                </div>
-            </div>
         </div>
     </div>
 

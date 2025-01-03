@@ -11,6 +11,29 @@ body {
   margin: 0;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  display: inline;
+  border-right: 1px solid #bbb;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+li#coming-soon {
+  color: #959595;
+}
+
+li:last-child {
+  border-right: none;
+}
+
 .content {
   flex: 1;
   display: flex;
@@ -21,12 +44,12 @@ body {
 .input-container {
   margin-bottom: 30px;
 }
-input {
+input.primogems-input {
   padding: 10px;
   font-size: 1rem;
   border-radius: 5px;
   border: 1px solid #ccc;
-  width: 200px;
+  width: 300px;
 }
 table {
   width: 80%;
@@ -46,22 +69,6 @@ td {
   font-weight: bold;
   font-size: 20px;
 }
-.hl-welkin-moon .link-paid {
-  color: #e0bf00;
-  font-weight: bold;
-  text-decoration: none;
-}
-.hl-welkin-moon.link-paid:hover {
-  color: #f4d62c;
-  font-weight: bold;
-  text-decoration: none;
-}
-.hl-welkin-moon.link-paid:visited {
-  color: #e0bf00;
-  font-weight: bold;
-  text-decoration: none;
-}
-
 a,
 a:visited {
   color: #000000;
@@ -91,7 +98,65 @@ a:visited {
   border-radius: 50%;
   overflow: hidden;
   display: block;
-  border: 30px solid #F6C97E;
+  border: 30px solid #f6c97e;
+}
+
+/*---------------------
+ |                   |
+ |    Button Theme   |
+ |                   |
+ -------------------*/
+.theme-button {
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  z-index: 1000;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #373737;
+}
+.theme-button.light {
+  background-color: #fff;
+}
+
+/*---------------------
+ |                   |
+ |       Button      |
+ |                   |
+ -------------------*/
+#primogems-button #pmg-add-hundreds,
+#pmg-add-thousands {
+  background-color: white;
+  color: #000;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+#primogems-button:hover #pmg-add-hundreds:hover,
+#pmg-add-thousands:hover {
+  color: #2196f3;
+  border: 2px solid #2196f3;
+}
+#primogems-button #pmg-sub-hundreds,
+#pmg-sub-thousands {
+  color: #000;
+  background-color: white;
+  font-weight: bold;
+  border: 2px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+#primogems-button:hover #pmg-sub-hundreds:hover,
+#pmg-sub-thousands:hover {
+  color: #ec5555;
+  border: 2px solid #ec5555;
 }
 
 .btn-clear.disabled {
@@ -156,14 +221,29 @@ a:visited {
 
 /*---------------------
  |                   |
+ |      Linked       |
+ |                   |
+ -------------------*/
+.link-paid {
+  color: #ffc800 !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+.link-paid:hover {
+  color: #1e49a5 !important;
+  font-weight: bold;
+}
+
+/*---------------------
+ |                   |
  |      Footer       |
  |                   |
  -------------------*/
 footer {
   margin-top: auto;
-  position: fixed;
-  bottom: 0;
-  /* padding: 10px; */
+  /* position: fixed; */
+  /* bottom: 0; */
+  padding: 5px;
   text-align: center;
 }
 footer.light {

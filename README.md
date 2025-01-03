@@ -8,6 +8,7 @@ This project is a utility web application for Genshin Impact players. It provide
 ## Features
 
 - Primogem calculator
+- Resin calculator
 - ~~Character and weapon database~~
 - ~~Artifact optimizer~~
 - ~~Daily task tracker~~
