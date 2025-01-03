@@ -24,10 +24,21 @@ li {
   color: white;
   text-align: center;
   padding: 14px 16px;
+  cursor: pointer;
+}
+
+li:hover {
+  color: rgb(255, 200, 0);
+}
+
+.li-active {
+  font-weight: bold;
+  color: rgb(255, 150, 0);
 }
 
 li#coming-soon {
   color: #959595;
+  cursor: not-allowed;
 }
 
 li:last-child {
@@ -99,6 +110,14 @@ a:visited {
   overflow: hidden;
   display: block;
   border: 30px solid #f6c97e;
+}
+.blue-rounded {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+  border: 30px solid #7e94f6;
 }
 
 /*---------------------

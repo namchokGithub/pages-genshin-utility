@@ -12,13 +12,13 @@
 
     <div class="navbar">
         <ul>
-            <li>Primogems</li>
-            <!-- <li>Resins</li> -->
-            <li id="coming-soon">Coming Soon</li>
+            <li class="menu li-active" id="menu-primogem-content" onclick="switchContent('primogem-content')">Primogems</li>
+            <li class="menu" id="menu-resin-content" onclick="switchContent('resin-content')">Resins</li>
+            <li class="menu" id="coming-soon">Coming Soon</li>
         </ul>
     </div>
 
-    <div class="content">
+    <div class="content" id="primogem-content">
         <div class="modal">
             <img src="assets/zl-meme.png" class="gold-rounded" id="gold-rounded" alt="GlitchMaster">
             <div style="display: flex; align-items: center; gap: 0.25rem;">
@@ -77,6 +77,41 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="content" id="resin-content" style="display: none;">
+        <div class="modal">
+            <img src="assets/resin-meme.jpg" class="blue-rounded" id="blue-rounded" alt="">
+            <div style="display: flex; align-items: center; gap: 0.25rem;">
+                <h1>Resin</h1>
+                <div><img src="assets/resin.png" style="height: 3rem; margin-left: 0.25rem;"></div>
+            </div>
+            <div class="input-container">
+                <h3 for="primogems">How many primogems do you have right now?</h3>
+                <input type="number" class="primogems-input" id="primogems-input" placeholder="Please input: " min="0" max="999999">
+                <button id="btn-clear" class="btn-clear">Clear</button>
+            </div>
+            <div id="primogems-button">
+                <button id="pmg-sub-thousands">-1000</button>
+                <button id="pmg-sub-hundreds">-100</button>
+                <button id="pmg-add-hundreds">+100</button>
+                <button id="pmg-add-thousands">+1000</button>
+            </div>
+            <div class="row" style="margin-top: 1rem;">
+                <div class="column">
+                    <img src="assets/acquaint_fate.png" style="height: 3rem;" alt="Acquaint Fate">
+                </div>
+                <div class="column">
+                    <span id="acquaint-fate">x 0</span>
+                </div>
+                <div class="column" style="margin-left: 2rem;">
+                    <img src="assets/intertwined_fate.png" style="height: 3rem;" alt="Intertwined Fate">
+                </div>
+                <div class="column">
+                    <span id="intertwined-fate">x 0</span>
+                </div>
+            </div>
         </div>
     </div>
 

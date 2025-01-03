@@ -1,5 +1,5 @@
 # pages-genshin-utility
-![Static Badge](https://img.shields.io/badge/Genshin%20Utility-0.0.1-green)
+![Static Badge](https://img.shields.io/badge/Genshin%20Utility-0.1.0-green)
 
 ## Description
 

@@ -109,6 +109,31 @@ pmgAddBtnHundreds.addEventListener("click", pmgAddHundreds);
 pmgSubBtnThousands.addEventListener("click", pmgSubThousands);
 pmgAddBtnThousands.addEventListener("click", pmgAddThousands);
 
+//---------------------
+// |                 |
+// |  Change content |
+// |                 |
+// -------------------
+function switchContent(target) {
+    const allContents = document.querySelectorAll('.content');
+    const allMenu = document.querySelectorAll('.menu');
+    allContents.forEach(content => {
+        if (content.id === target) {
+            content.style.display = 'flex';
+        } else {
+            content.style.display = 'none';
+        }
+    });
+    targetMenu = `menu-${target}`;
+    allMenu.forEach(content => {
+        if (content.id === targetMenu) {
+            content.classList.add('li-active');
+        } else {
+            content.classList.remove('li-active');
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     inputField.addEventListener('input', calculateDays);
     clearButton.addEventListener('click', clearForm);
