@@ -214,7 +214,7 @@ function calculateTargetTime() {
     clearInterval(countdownInterval);
     startCountdown(totalMinutes, 0, 1);
 }
-function clearForm() {
+function clearFormResin() {
     const clearButton = document.getElementById('resin-btn-clear');
     if (clearButton.classList.contains('disabled')) {
         return;
