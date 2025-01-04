@@ -11,14 +11,14 @@ body {
   margin: 0;
 }
 
-ul {
+ul.menu {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-li {
+li.menu {
   display: inline;
   border-right: 1px solid #bbb;
   color: white;
@@ -27,11 +27,11 @@ li {
   cursor: pointer;
 }
 
-li:hover {
+li.menu:hover {
   color: rgb(255, 200, 0);
 }
 
-.li-active {
+.li-active.menu {
   font-weight: bold;
   color: rgb(255, 150, 0);
 }
@@ -55,7 +55,12 @@ li:last-child {
 .input-container {
   margin-bottom: 30px;
 }
-input.primogems-input {
+
+.input-container.resin-input-container {
+  margin-bottom: 0;
+}
+
+input.primogems-input, .resin-input {
   padding: 10px;
   font-size: 1rem;
   border-radius: 5px;
@@ -120,6 +125,69 @@ a:visited {
   border: 30px solid #7e94f6;
 }
 
+.highlight {
+  color: #fdc159;
+  /* color: #f6c97e; */
+  font-weight: bold;
+}
+
+/*---------------------
+ |                   |
+ |      Output       |
+ |                   |
+ -------------------*/
+.time-unit {
+  font-size: 10px;
+}
+.time-unit.light {
+  font-size: 10px;
+  color: #4c4c4c !important;
+}
+.time-unit.dark  {
+  font-size: 10px;
+  color: #9d9d9d !important;
+}
+.total-time {
+  display: block;
+  font-size: 15px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
+.output {
+  width: 80%;
+  /* margin-top: 10%; */
+  font-size: 18px;
+  color: #4c4c4c;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.output.light {
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.output.dark {
+  color: #ffffff;
+  background-color: #2b2b2b;
+  border: 2px solid #444444;
+  box-shadow: 0 4px 8px rgba(152, 152, 152, 0.4);
+}
+
+/*---------------------
+ |                   |
+ |   Description     |
+ |                   |
+ -------------------*/
+.resin-description {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
 /*---------------------
  |                   |
  |    Button Theme   |
@@ -127,8 +195,8 @@ a:visited {
  -------------------*/
 .theme-button {
   position: fixed;
-  top: 50px;
-  right: 10px;
+  top: 7%;
+  right: 1%;
   padding: 10px 15px;
   font-size: 14px;
   cursor: pointer;
@@ -215,6 +283,11 @@ a:visited {
   margin: 10% 0 10% 0;
   width: 50rem;
   height: 50rem;
+}
+.modal.resin-content {
+  margin: 5% 0 10% 0;
+  height: 55rem;
+  padding: 1.5rem;
 }
 
 .modal h1 {
