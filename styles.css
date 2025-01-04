@@ -60,7 +60,8 @@ li:last-child {
   margin-bottom: 0;
 }
 
-input.primogems-input, .resin-input {
+input.primogems-input,
+.resin-input {
   padding: 10px;
   font-size: 1rem;
   border-radius: 5px;
@@ -126,7 +127,7 @@ a:visited {
 }
 
 .highlight {
-  color: #fdc159;
+  color: #ffb535;
   /* color: #f6c97e; */
   font-weight: bold;
 }
@@ -143,7 +144,7 @@ a:visited {
   font-size: 10px;
   color: #4c4c4c !important;
 }
-.time-unit.dark  {
+.time-unit.dark {
   font-size: 10px;
   color: #9d9d9d !important;
 }
@@ -160,7 +161,7 @@ a:visited {
   width: 80%;
   /* margin-top: 10%; */
   font-size: 18px;
-  color: #4c4c4c;
+  color: #000000;
   border: 2px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -176,6 +177,11 @@ a:visited {
   background-color: #2b2b2b;
   border: 2px solid #444444;
   box-shadow: 0 4px 8px rgba(152, 152, 152, 0.4);
+}
+#current-time {
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: #474747;
 }
 
 /*---------------------
@@ -216,7 +222,7 @@ a:visited {
  |                   |
  -------------------*/
 #primogems-button #pmg-add-hundreds,
-#pmg-add-thousands {
+#pmg-add-thousands, #rs-add-hundreds, #rs-add-ten {
   background-color: white;
   color: #000;
   font-weight: bold;
@@ -226,12 +232,12 @@ a:visited {
   transition: background-color 0.1s ease, color 0.1s ease;
 }
 #primogems-button:hover #pmg-add-hundreds:hover,
-#pmg-add-thousands:hover {
+#pmg-add-thousands:hover, #rs-add-hundreds:hover, #rs-add-ten:hover {
   color: #2196f3;
   border: 2px solid #2196f3;
 }
 #primogems-button #pmg-sub-hundreds,
-#pmg-sub-thousands {
+#pmg-sub-thousands, #rs-sub-hundreds, #rs-sub-ten {
   color: #000;
   background-color: white;
   font-weight: bold;
@@ -241,7 +247,7 @@ a:visited {
   transition: background-color 0.1s ease, color 0.1s ease;
 }
 #primogems-button:hover #pmg-sub-hundreds:hover,
-#pmg-sub-thousands:hover {
+#pmg-sub-thousands:hover, #rs-sub-hundreds:hover, #rs-sub-ten:hover {
   color: #ec5555;
   border: 2px solid #ec5555;
 }
@@ -286,7 +292,7 @@ a:visited {
 }
 .modal.resin-content {
   margin: 5% 0 10% 0;
-  height: 55rem;
+  height: 60rem;
   padding: 1.5rem;
 }
 
@@ -305,6 +311,27 @@ a:visited {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.modal button.btn-calculator {
+  background-color: white;
+  color: #00c60d;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid #00c60d;
+  cursor: pointer;
+}
+.modal button.btn-clear {
+  background-color: white;
+  color: #e20101;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 2px solid #e20101;
+  cursor: pointer;
+}
+
+.modal button.btn-calculator:hover, .modal button.btn-clear:hover {
+  background-color: #e8e8e8;
 }
 
 .modal button:hover {

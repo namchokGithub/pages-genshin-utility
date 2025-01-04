@@ -12,13 +12,13 @@
 
     <div class="navbar">
         <ul>
-            <li class="menu" id="menu-primogem-content" onclick="switchContent('primogem-content')">Primogems</li>
-            <li class="menu li-active" id="menu-resin-content" onclick="switchContent('resin-content')">Resins</li>
+            <li class="menu li-active" id="menu-primogem-content" onclick="switchContent('primogem-content')">Primogems</li>
+            <li class="menu" id="menu-resin-content" onclick="switchContent('resin-content')">Resins</li>
             <li class="menu" id="coming-soon">Coming Soon</li>
         </ul>
     </div>
 
-    <div class="content" id="primogem-content" style="display: none;">
+    <div class="content" id="primogem-content">
         <div class="modal">
             <img src="assets/zl-meme.png" class="gold-rounded" id="gold-rounded" alt="GlitchMaster">
             <div style="display: flex; align-items: center; gap: 0.25rem;">
@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <div class="content" id="resin-content" >
+    <div class="content" id="resin-content" style="display: none;">
         <div class="modal resin-content">
             <img src="assets/resin-meme.jpg" class="blue-rounded" id="blue-rounded" alt="">
             <div style="display: flex; align-items: center; gap: 0.25rem;">
@@ -90,22 +90,22 @@
             <div class="input-container resin-input-container">
                 <h3 for="resin">How many resin do you have right now?</h3>
                 <div class="input-container">
-                    <input type="number" class="resin-input" id="resin-input" placeholder="Current resin: " min="0" max="199">
-                    <button id="resin-btn-clear" class="btn-clear">Clear</button>
+                    <input type="number" class="resin-input" id="current-resin-input" placeholder="Current resin: " min="0" max="199">
                 </div>
                 <div id="primogems-button" style="margin: -20px 0 10px 0;">
-                    <button id="rs-sub-thousands">-100</button>
-                    <button id="rs-sub-hundreds">-10</button>
-                    <button id="rs-add-hundreds">+10</button>
-                    <button id="rs-add-thousands">+100</button>
+                    <button id="rs-sub-hundreds">-100</button>
+                    <button id="rs-sub-ten">-10</button>
+                    <button id="rs-add-ten">+10</button>
+                    <button id="rs-add-hundreds">+100</button>
                 </div>
                 <div class="input-container">
-                    <input type="number" class="resin-input" id="resin-input" placeholder="Target resin (Default 200): " min="0" max="200">
-                    <button id="resin-btn-clear" class="btn-clear">Clear</button>
+                    <input type="number" class="resin-input" id="target-resin-input" placeholder="Target resin (Default 200): " min="0" max="200">
                 </div>
+                <button id="resin-btn-calculate" class="btn-calculator" onclick="calculateTargetTime()">Calculate</button>
+                <button id="resin-btn-clear" class="btn-clear" onclick="clearForm()">Clear</button>
             </div>
 
-            <p id="current-time" style="font-size: 14px; margin-bottom: 10px;"></p>
+            <p id="current-time"></p>
 
             <div class="output" id="output">
                 <p class="total-time">
@@ -119,7 +119,7 @@
                     <span class="min-count-down">00</span> <span class="time-unit">Min(s)</span>
                     <span class="sec-count-down">00</span> <span class="time-unit">Sec(s)</span>
                 </p>
-                <p id="target-time" style="font-size: 14px; margin-bottom: 15px;">Target Time: 2:21 PM</p>
+                <p id="target-time" style="font-size: 14px; margin-bottom: 15px;">Target Time: 0:00 AM</p>
             </div>
 
             <div id="resin-description" class="resin-description">

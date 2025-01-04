@@ -168,18 +168,18 @@ function startCountdown(targetValue, currentValue, incrementInterval) {
     updateCountdown();
 }
 function calculateTargetTime() {
-    let currentValue = parseInt(document.getElementById('current-resin-value').value);
-    let targetValue = parseInt(document.getElementById('target-resin-value').value);
-    if (isNaN(currentValue)) {
+    let currentValue = parseInt(document.getElementById('current-resin-input').value);
+    let targetValue = parseInt(document.getElementById('target-resin-input').value);
+    if (isNaN(currentValue) || currentValue > targetValue) {
         currentValue = 0;
     }
-    if (isNaN(targetValue)) {
-        targetValue = 350;
+    if (isNaN(targetValue) || targetValue > 200) {
+        targetValue = 200;
     }
-    document.getElementById("current-resin-value").value = currentValue;
-    document.getElementById("target-resin-value").value = targetValue;
+    document.getElementById("current-resin-input").value = currentValue;
+    document.getElementById("target-resin-input").value = targetValue;
 
-    const incrementInterval = 5; // Fixed increment interval in minutes
+    const incrementInterval = 8; // Fixed increment interval in minutes
     const difference = targetValue - currentValue;
     const totalMinutes = difference * incrementInterval;
     const totalSeconds = difference * incrementInterval * 60;
@@ -188,6 +188,15 @@ function calculateTargetTime() {
     const minutes = totalMinutes % 60;
     const seconds = totalSeconds % 60;
 
+    const now = new Date();
+    const targetTime = new Date(now.getTime());
+    targetTime.setHours(now.getHours() + hours);
+    targetTime.setMinutes(now.getMinutes() + totalMinutes);
+    targetTime.setSeconds(now.getSeconds() + totalSeconds);
+    const formattedTargetTime = targetTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    const isTomorrow = targetTime.getDate() !== now.getDate() || targetTime.getMonth() !== now.getMonth() || targetTime.getFullYear() !== now.getFullYear();
+    const finalTargetTime = isTomorrow ? `<i>Tomorrow</i>, ${formattedTargetTime}` : formattedTargetTime;
+
     document.getElementById('output').innerHTML = `
     <p class="total-time">
         Total Time: [ ${hours.toString().padStart(2, '0')}
@@ -195,11 +204,12 @@ function calculateTargetTime() {
         ${minutes.toString().padStart(2, '0')}
         <span class="time-unit">Min(s)</span> ]
     </p>
-    <h2>
+    <p>
         <span class="hour-count-down">${hours.toString().padStart(2, '0')}</span> <span class="time-unit">Hr(s)</span>
         <span class="min-count-down">${minutes.toString().padStart(2, '0')}</span> <span class="time-unit">Min(s)</span>
         <span class="sec-count-down">${seconds.toString().padStart(2, '0')}</span> <span class="time-unit">Sec(s)</span>
-    </h2>
+    </p>
+     <p id="target-time" style="font-size: 14px; margin-bottom: 15px;">Target Time: ${finalTargetTime}</p>
     `;
     clearInterval(countdownInterval);
     startCountdown(totalMinutes, 0, 1);
@@ -209,8 +219,9 @@ function clearForm() {
     if (clearButton.classList.contains('disabled')) {
         return;
     }
+    document.getElementById('current-resin-input').value = '';
+    document.getElementById('target-resin-input').value = '';
     clearInterval(countdownInterval);
-    document.getElementById('calculator-form').reset();
     document.getElementById('output').innerHTML = `
         <p class="total-time">
             Total Time: [ 00
@@ -218,13 +229,56 @@ function clearForm() {
             00
             <span class="time-unit">Min(s)</span> ]
         </p>
-        <h2>
+        <p>
             <span class="hour-count-down">00</span> <span class="time-unit">Hr(s)</span>
             <span class="min-count-down">00</span> <span class="time-unit">Min(s)</span>
             <span class="sec-count-down">00</span> <span class="time-unit">Sec(s)</span>
-        </h2>
+        </p>
+        <p id="target-time" style="font-size: 14px; margin-bottom: 15px;">Target Time: 0:00 AM</p>
     `;
 }
+const currentResinInput = document.getElementById("current-resin-input");
+const targetResinInput = document.getElementById("target-resin-input");
+const resinSubBtnTen = document.getElementById("rs-sub-ten");
+const resinAddBtnTen = document.getElementById("rs-add-ten");
+const resinSubBtnHundreds = document.getElementById("rs-sub-hundreds");
+const resinAddBtnHundreds = document.getElementById("rs-add-hundreds");
+function resinSubTen() {
+    let currentResin = parseInt(currentResinInput.value, 10) || 0;
+    if (currentResin == 0) return;
+    currentResin -= 10;
+    if (currentResin < 0) currentResin = 0;
+    currentResinInput.value = currentResin;
+}
+function resinAddTen() {
+    let currentResin = parseInt(currentResinInput.value, 10) || 0;
+    currentResin += 10;
+    if (currentResin > 200) currentResin = 200;
+    currentResinInput.value = currentResin;
+}
+function resinSubHundreds() {
+    let currentResin = parseInt(currentResinInput.value, 10) || 0;
+    if (currentResin === 0) return;
+    currentResin -= 100;
+    if (currentResin < 0) currentResin = 0;
+    currentResinInput.value = currentResin;
+}
+function resinAddHundreds() {
+    let currentResin = parseInt(currentResinInput.value, 10) || 0;
+    currentResin += 100;
+    if (currentResin > 200) currentResin = 200;
+    currentResinInput.value = currentResin;
+}
+resinSubBtnTen.addEventListener("click", resinSubTen);
+resinAddBtnTen.addEventListener("click", resinAddTen);
+resinSubBtnHundreds.addEventListener("click", resinSubHundreds);
+resinAddBtnHundreds.addEventListener("click", resinAddHundreds);
+currentResinInput.addEventListener("input", () => {
+    currentResinInput.value = Math.max(0, Math.min(currentResinInput.value, 200));
+});
+targetResinInput.addEventListener("input", () => {
+    targetResinInput.value = Math.max(0, Math.min(targetResinInput.value, 200));
+});
 
 //---------------------
 // |                 |
