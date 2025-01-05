@@ -315,6 +315,64 @@ function startMinuteUpdater() {
 }
 startMinuteUpdater();
 
+//---------------------
+// |                 |
+// |  Toggle Theme   |
+// |                 |
+// -------------------
+const themeToggleButton = document.getElementById('theme-toggle');
+const elementsToToggle = [
+    { elements: [document.body], classes: ['dark', 'light'] },
+    { elements: document.querySelectorAll('.time-unit'), classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.navbar')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.modal')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.modal.resin-content')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.output')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.content')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.intertwined-fate')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.acquaint-fate')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('#btn-clear')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('#resin-btn-clear')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.gold-rounded')], classes: ['dark'] },
+    { elements: [document.querySelector('.blue-rounded')], classes: ['dark'] },
+    { elements: [document.querySelector('.resin-description')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('footer')], classes: ['dark', 'light'] },
+    { elements: [document.querySelector('.current-time')], classes: ['dark', 'light'] },
+    { elements: document.querySelectorAll('a'), classes: ['dark', 'light'] },
+    { elements: document.querySelectorAll('th'), classes: ['dark', 'light'] },
+    { elements: document.querySelectorAll('td'), classes: ['dark', 'light'] },
+    { elements: document.querySelectorAll('.modal h1'), classes: ['dark', 'light'] },
+    { elements: document.querySelectorAll('.input-container h3'), classes: ['dark', 'light'] },
+    { elements: [themeToggleButton], classes: ['dark', 'light'] }
+];
+function toggleTheme() {
+    const currentTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem('theme', currentTheme);
+    elementsToToggle.forEach(({ elements, classes }) => {
+        elements.forEach(element => {
+            classes.forEach(cls => element.classList.toggle(cls));
+        });
+    });
+}
+function applySavedTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.classList.add(savedTheme);
+
+    elementsToToggle.forEach(({ elements, classes }) => {
+        elements.forEach(element => {
+            if (savedTheme === 'dark') {
+                element.classList.remove('light');
+                element.classList.add('dark');
+            } else {
+                element.classList.remove('dark');
+                element.classList.add('light');
+            }
+        });
+    });
+}
+themeToggleButton.addEventListener('click', toggleTheme);
+window.addEventListener('load', applySavedTheme);
+
 document.addEventListener('DOMContentLoaded', () => {
     inputField.addEventListener('input', calculateDays);
     clearButton.addEventListener('click', clearForm);
