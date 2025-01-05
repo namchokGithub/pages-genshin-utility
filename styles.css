@@ -288,10 +288,10 @@ body > footer > div:nth-child(2) > p > a:visited.dark {
   border-radius: 5px;
   z-index: 1000;
   transition: background-color 0.3s, color 0.3s;
-  background-color: #373737;
+  background-color: #fff;
 }
 .theme-button.light {
-  background-color: #fff;
+  background-color: #373737;
 }
 
 /*---------------------
@@ -366,9 +366,11 @@ body > footer > div:nth-child(2) > p > a:visited.dark {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10% 0 10% 0;
-  width: 50rem;
-  height: 50rem;
+  margin: 5% 0 10% 0;
+  width: 90%;
+  max-width: 50rem;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 .modal.light {
   background-color: white;
@@ -384,9 +386,13 @@ body > footer > div:nth-child(2) > p > a:visited.dark {
 }
 
 .modal.resin-content {
-  margin: 5% 0 10% 0;
+  margin: 5% auto 10% auto;
   height: 60rem;
   padding: 1.5rem;
+  width: 90%;
+  max-width: 50rem;
+  box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .modal.resin-content.light {
@@ -395,7 +401,6 @@ body > footer > div:nth-child(2) > p > a:visited.dark {
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
 .modal.resin-content.dark {
   background-color: #4f4f4f;
   border: 1px solid #343434;
@@ -512,4 +517,162 @@ footer.light {
 }
 footer.dark {
   color: white;
+}
+
+/* Responsive adjustments */
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+  .gold-rounded,
+  .gold-rounded.dark {
+    height: 250px;
+    width: 250px;
+    border: 20px solid #f6c97e;
+  }
+  .gold-rounded.dark {
+    border: 20px solid #ffb941;
+  }
+
+  .blue-rounded,
+  .blue-rounded.dark {
+    height: 200px;
+    width: 200px;
+    border: 20px solid #7e94f6;
+  }
+  .blue-rounded.dark {
+    border: 20px solid #5b78fa;
+  }
+
+  .modal {
+    margin: 8% auto;
+    height: 60rem;
+    padding: 1.2rem;
+    width: 95%;
+  }
+
+  .theme-button {
+    top: 8%;
+    right: 2%;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .modal.resin-content {
+    margin: 8% auto;
+    height: 60rem;
+    padding: 1.2rem;
+    width: 95%;
+  }
+
+  ul.menu {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  li.menu {
+    border-right: none;
+    border-bottom: 1px solid #bbb;
+    padding: 10px 12px;
+  }
+}
+/* For small phones */
+@media (max-width: 480px) {
+  .gold-rounded,
+  .gold-rounded.dark {
+    height: 150px;
+    width: 150px;
+    border: 15px solid #f6c97e;
+  }
+  .gold-rounded.dark {
+    border: 15px solid #ffb941;
+  }
+
+  .blue-rounded,
+  .blue-rounded.dark {
+    height: 150px;
+    width: 150px;
+    border: 15px solid #5b78fa;
+  }
+  .blue-rounded.dark {
+    border: 15px solid #7e94f6;
+  }
+
+  .modal {
+    width: 80%;
+    padding: 1rem;
+    margin: 10% auto;
+    border-radius: 0;
+  }
+
+  input.primogems-input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 150px;
+  }
+
+  .resin-input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+  }
+
+  .theme-button {
+    top: 7.3%;
+    right: 3%;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  .modal.resin-content {
+    margin: 10% auto;
+    height: auto;
+    padding: 1rem;
+    width: 90%;
+    border-radius: 0;
+  }
+}
+/* For large screens */
+@media (min-width: 1200px) {
+  .gold-rounded,
+  .gold-rounded.dark {
+    height: 200px;
+    width: 200px;
+    border: 30px solid #f6c97e;
+  }
+  .gold-rounded.dark {
+    border: 35px solid #ffb941;
+  }
+
+  .blue-rounded,
+  .blue-rounded.dark {
+    height: 200px;
+    width: 200px;
+    border: 35px solid #5b78fa;
+  }
+  .blue-rounded.dark {
+    border: 35px solid #7e94f6;
+  }
+
+  .modal {
+    width: 95%;
+    max-width: 60rem;
+  }
+
+  .theme-button {
+    top: 8%;
+    right: 1%;
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+  .modal.resin-content {
+    height: 60rem;
+    width: 60rem;
+    max-width: 60rem;
+    padding: 1rem;
+  }
 }
